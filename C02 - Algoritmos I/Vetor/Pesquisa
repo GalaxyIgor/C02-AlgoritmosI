@@ -1,0 +1,41 @@
+#include <iostream>//biblioteca padrão
+using namespace std;
+
+int main() //função principal
+{
+    int Valor[100];//determina um vetor do valor
+    int Quantidade = 0;//determina a quantidade = 0
+    int Numero_requerido;//declara um numero desejado
+    int posicao = -1;//declara a posição = -1 
+   
+    for (int i = 0; i < 100; i++) //loop ate 100 vezes
+    {
+        cin >> Valor[i]; // Leitura dos números inteiros
+        if (Valor[i] == 0) // se o valor do vetor for 0
+        {
+            break; //ele vai parar
+        }
+        Quantidade++;//adiciona mais um na quantidade de casas relacionado ao vetor
+    }
+
+    cin >> Numero_requerido;  // Leitura do número a ser pesquisado
+
+    for (int i = 0; i < Quantidade; i++) //loop baseado na quantidade
+    {
+        if (Valor[i] == Numero_requerido) // se o vetor por igual ao valor pesquisado
+        {
+            posicao = i + 1; // a posicao vai passar a ser 
+            break;//vai parar
+        }
+    }
+
+    if (posicao != -1) //se for Verdadeiro (numero acima de -1)
+    {
+        cout << "Elemento " << Numero_requerido << " encontrado na posicao " << posicao << endl;//imprimir na tela "Elemento " << Numero_requerido << " encontrado na posicao " << posicao"
+    } else  // caso não 
+    {
+        cout << "Elemento " << Numero_requerido << " nao foi encontrado" << endl;//imprimir na tela "Elemento " << Numero_requerido << " nao foi encontrado"
+    }
+
+    return 0;//sucesso
+}

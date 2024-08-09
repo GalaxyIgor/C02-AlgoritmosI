@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+struct info //quardar coisas
+{
+    char nome [100];
+    int ano
+};
+
+int main()
+{
+    info filme[5];//atmazena os dados dos filmes
+    int n;//quantidade de filmes
+    int i;//contador
+    //lendo quantidade de filmes
+    cin>> n;
+
+    //lendo dados do segundo filme
+    for(i = 0;i<n i++)
+    {
+        cin.getline(filme[i].nome,100);
+        cin >> filme [i].ano;
+    }
+
+    //mostrando dados do filme;
+    for(i=0;i<n; i++)
+    {
+        cout << "Nome: " << filme[i].mome << endl;
+        cout << "Ano: " << filme[i].ano << endl;
+    }
+    return 0;
+}

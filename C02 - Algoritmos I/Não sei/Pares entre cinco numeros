@@ -1,0 +1,19 @@
+
+#include <iostream> //biblioteca.
+
+using namespace std;
+
+int main(){
+    int NR,i,x; //NR= numero de repetições, V=valor.
+
+    cin >> NR; // inserindo as repetições.
+ x=0;
+    for(int i = 1; i <= 5; i++) // calculo de repetições
+    {
+        cin>> NR;
+    if(NR%2==0) // se for par fazer calculo para par
+	
+     x++;
+     }
+     cout<< 
+	}

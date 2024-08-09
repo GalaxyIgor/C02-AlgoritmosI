@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+
+struct info // Posso guardar qualquer coisas aqui;
+{
+    char nome[100];
+    int ano;
+};
+
+int main()
+{
+    info filme[5]; // Armazena os dados dos filmes;
+    int n; // Quantidade de filmes;
+    int i; // Contador;
+
+    // Lendo quantidade de filmes;
+    cin >> n;
+
+    // Lendo dados do filme;
+    for (i = 0; i < n; i++)
+    {
+        cin.ignore();
+        cin.getline(filme[i].nome,100); // Sempre esse i vai aumentar ent sempre vai; 
+        cin >> filme[i].ano; // Armazenar no vetor dps 1+;
+    }
+    
+    // Mostrando dados do filme;
+    for (i = 0; i < n; i++)
+    {
+        cout << "Nome: " << filme[i].nome << endl;
+        cout << "Ano: " << filme[i].ano << endl;
+    }
+
+    return 0;
+}

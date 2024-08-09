@@ -1,0 +1,55 @@
+#include <iostream>                        //biblioteca padrãp
+#include <cstring>                         //biblioteca para  string
+#include <cctype>                          //biblioteca para letras maiusculas e minusculas
+
+using namespace std;
+
+int main() {
+    const char Cidades_Configuradas[][25] = {
+        "Brasilia",                         // Array de Cidades_Configuradas
+        "Salvador",
+        "Sao Paulo",
+        "Rio de Janeiro",
+        "Juiz de Fora",
+        "Campinas",
+        "Vitoria",
+        "Belo Horizonte",
+        "Santa Rita do Sapucai"
+    };
+
+    const char DDDs[][3] = {
+        "61",                               // Array de DDDs correspondentes
+        "71",
+        "11",
+        "21",
+        "32",
+        "19",
+        "27",
+        "31",
+        "35"
+    };
+
+    const int Numero_de_Cidades = 9;        // Número total de Cidades_Configuradas
+
+    char Cidade_Inserida[25];
+    cin.getline(Cidade_Inserida, 25);                 // Lê o nome da Cidade_Inserida fornecido pelo usuário
+
+    char DDD[20] = "DDD nao cadastrado";     // Inicializa o DDD como "DDD nao cadastrado"
+    int i = 0;
+    while (i < Numero_de_Cidades && strcasecmp(Cidade_Inserida, Cidades_Configuradas[i]) != 0) {
+        i++;
+    }
+    /*
+        Percorre o array de Cidades_Configuradas procurando uma correspondência.
+        strcasecmp é usado para comparar as strings sem distinguir maiúsculas e minúsculas.
+        O loop continua enquanto não atingir o limite de Cidades_Configuradas e enquanto não houver correspondência.
+    */
+
+    if (i < Numero_de_Cidades) {
+        strcpy(DDD, DDDs[i]);                // Se houver correspondência, copia o DDD correspondente para a variável DDD
+    }
+
+    cout << DDD << endl;                     // Exibe o resultado (DDD encontrado ou "DDD nao cadastrado")
+
+    return 0;
+}

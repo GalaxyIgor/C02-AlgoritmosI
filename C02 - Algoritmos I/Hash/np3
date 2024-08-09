@@ -1,0 +1,152 @@
+#include<iostream>
+#include <iomanip>
+
+using namespace std;
+
+struct dado
+{
+    int quantidade;
+    int status; // 0: vazio, 1: preenchido, 2: deletado
+};
+
+//correto
+int hash_aux(int k, int m){
+	int hk = k%m;
+	return hk;
+}
+
+//correto
+int hash_aux2(int k, int m){
+	int hk = 1+(k%(m-1));
+	return hk;
+}
+
+//correto
+int hash_linear(int k, int m, int i){
+	return ( hash_aux(k,m) + i )%m;
+}
+
+//correto
+int hash_quadratico(int k, int m, int i){
+	int c1=1, c2=3;
+	return ( hash_aux(k,m) + c1*i + c2*i*i)%m;
+}
+
+//correto
+int hash_duplo(int k, int m, int i){
+	return (hash_aux(k,m) + i*hash_aux2(k,m))%m;
+}
+
+//correto
+int hash_geral(int k, int m, int i){
+	return hash_duplo(k,m,i);
+}
+
+//pode estar incorreto
+int inserir(dado tabela_hash[], int m, dado k){
+	int i=0, hk;
+	while(i<m){
+		hk = hash_geral(k.codigo,m,i);
+		if(tabela_hash[hk].status != 1){
+			tabela_hash[hk] = k;
+			tabela_hash[hk].status = 1;
+			return hk;
+		}
+		else
+			i++;
+	}
+	return -1;
+}
+/*
+int inserir(dado tabela_hash[], int m, dado k)
+{
+	int i = 0, hk;
+	while (i < m)
+	{
+		hk = hash_geral(k.codigo, m, i);
+		if (tabela_hash[hk].status == 0)
+		{
+			tabela_hash[hk] = k;
+			tabela_hash[hk].status = 1;
+			return hk;
+		}
+		else
+			i++;
+	}
+	return -1;
+}
+*/
+//correto
+int buscar(dado tabela_hash[], int m, int k){
+	int i=0, hk;
+	while(i<m){
+		hk = hash_geral(k,m,i);
+		if(tabela_hash[hk].status == 0){
+			return -1;
+		} else if(tabela_hash[hk].status == 1 && tabela_hash[hk].quantidade == k){
+			return hk;
+		} else
+			i++;
+	}
+	return -1;
+}
+
+
+//correto
+int remover(dado tabela_hash[], int m, int k){
+	int i=0, hk;
+	while(i<m){
+		hk = hash_geral(k,m,i);
+		if(tabela_hash[hk].status == 0){
+			return -1;
+		} else if(tabela_hash[hk].status == 1 && tabela_hash[hk].quantidade == k){
+			tabela_hash[hk].status = 2;
+			return hk;
+		} else
+			i++;
+	}
+	return -1;
+}
+
+
+//a funcao secreta ainda nao estava no codigo
+int predio_escolhido( int M, int K){
+    return (K % M);
+}
+
+void imprimir(dado tabela_hash[], int m){
+	for(int j=0;j<m;j++){
+		dado i = tabela_hash[j];
+		if(i.status == 1)
+			cout<<j<<":"<<tabela_hash[j].k<< " ";
+	}
+	cout<<endl;	
+}
+
+int main(){
+    //entrada
+    //a primeira linha irá conter a quantidade M de prédios (um número inteiro).
+	int m;
+	cin >> m;
+
+	//a segunda linha irá conter um número inteiro C de caixas a serem inseridas.
+    int c;
+	cin >> c;
+
+    dado tabela_hash[m];
+    //as C linhas a seguir irão conter a quantidade K de armas em cada uma das caixas.
+    for (int k = 0; k < c; k++)
+    {
+        tabela_hash[k].status = 0;
+    }
+
+    /*Saída
+    Na saída, o programa deve mostrar a quantidade de armas em cada prédio no formato i : K, 
+    sendo i o número de cada um dos M prédios (começando por 0) e K sendo a quantidade de armas 
+    armazenadas nesse prédio (mostre o valor 0 caso não tenha nenhuma arma armazenada nesse prédio).
+    */
+
+    
+	return 0;
+	
+}
