@@ -1,68 +1,110 @@
-# ============================
-# 🐍 Python
-# ============================
-__pycache__/
-*.py[cod]
-*.pyo
-*.pyd
-*.pkl
-*.egg-info/
-.eggs/
-dist/
-build/
-.venv/
-venv/
-ENV/
+# =====================================
+# .gitignore para projetos C++
+# =====================================
 
-# Pytest / Coverage
-.pytest_cache/
-.coverage
-htmlcov/
-.mypy_cache/
-.dmypy.json
-.pyre/
+# Compilação geral
+*.o
+*.obj
+*.lo
+*.slo
+*.Plo
+*.a
+*.la
+*.lib
+*.dll
+*.so
+*.so.*
+*.dylib
+*.exe
+*.out
+*.app
+*.i*
+*.ii
 
-# ============================
-# ☕ Java / Maven / Gradle
-# ============================
-target/
-*.class
-*.jar
-*.war
-*.ear
-*.iml
+# Arquivos de depuração
+*.dSYM/
+*.su
+*.idb
+*.pdb
+*.mod
+*.cmd
+*.exp
+*.map
+
+# Logs e temporários
 *.log
-.gradle/
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+*.old
+*.orig
+*~
+
+# Diretórios de build
 build/
+Build/
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+CMakeScripts/
+Testing/
+Makefile
+Makefile.*
+CTestTestfile.cmake
+install_manifest.txt
+compile_commands.json
+cmake_install.cmake
 
-# ============================
-# 📦 Node.js
-# ============================
-node_modules/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-.pnpm-debug.log*
-
-# ============================
-# 🖥️ IDEs / Editores
-# ============================
-# VSCode
+# Visual Studio / Visual Studio Code
+.vs/
 .vscode/
+*.vcxproj*
+*.sln
+*.user
+*.opensdf
+*.sdf
+*.ipch
 
-# IntelliJ / JetBrains
+# CLion / JetBrains
 .idea/
-*.iws
-*.ipr
+cmake-build-debug/
+cmake-build-release/
+*.iml
 
-# Eclipse
-.project
-.classpath
-.settings/
+# Code::Blocks
+*.depend
+*.layout
+*.cbp
+*.cbtmp
 
-# ============================
-# 💻 Sistema Operacional
-# ============================
+# Qt / QMake
+*.pro.user
+*.qmake.stash
+*.qmake.cache
+
+# Outros IDEs e editores
+*.kate-swp
+*.ncb
+*.opt
+*.plg
+
+# Cache e binários gerados
+bin/
+Bin/
+obj/
+Obj/
+lib/
+Lib/
+debug/
+Debug/
+release/
+Release/
+dist/
+Dist/
+
+# Sistema operacional
 # macOS
 .DS_Store
 .AppleDouble
@@ -72,15 +114,20 @@ yarn-error.log*
 Thumbs.db
 ehthumbs.db
 Desktop.ini
+$RECYCLE.BIN/
 
 # Linux
 *~
+.nfs*
 
-# ============================
-# 🔑 Segurança
-# ============================
-.env
-*.key
-*.pem
-*.crt
-*.secret
+# Arquivos de pacotes
+*.tar
+*.gz
+*.zip
+*.7z
+*.rar
+
+# =====================================
+# Fim do arquivo
+# =====================================
+# Este arquivo pode ser personalizado conforme necessário para o projeto específico.
